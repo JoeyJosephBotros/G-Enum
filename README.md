@@ -2,6 +2,7 @@
 
 # G-Enum 🚀
 
+```
                         ('-.       .-') _             _   .-')    
                       _(  OO)     ( OO ) )           ( '.( OO )_  
   ,----.             (,------.,--./ ,--,' ,--. ,--.   ,--.   ,--.)
@@ -12,6 +13,7 @@
  |  '--'  |           |  `---.|  | \   | ('  '-'(_.-' |  |   |  | 
   `------'            `------'`--'  `--'   `-----'    `--'   `--' 
 
+```
 G-Enum is a powerful tool designed to enumerate the permissions of Google Cloud Platform (GCP) service accounts. It provides an efficient way to test IAM permissions for a specified Google Cloud project.
 
 ## Features
