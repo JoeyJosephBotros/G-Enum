@@ -63,5 +63,3 @@ python g_enum.py -p my-gcp-project -k /path/to/keyfile.json
 
 📧 For support and inquiries, contact Joey Joseph at [joey.a.joseph@gmail.com].
 
-
-Feel free to replace placeholder values with your actual information and customize the sections as needed.
