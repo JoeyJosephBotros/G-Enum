@@ -24,6 +24,8 @@ G-Enum is a powerful tool designed to enumerate the permissions of Google Cloud 
 
 🔑 **Service Account Key File**: Use the `-k` or `--keyfile` flag to provide the path to your service account key file (JSON).
 
+🔑 **Service Account Token**: Use the `-t` or `--token` flag to provide the users token.
+
 🚀 **Animated Interface**: Enjoy a dynamic and animated interface that enhances the user experience during the enumeration process.
 
 ## Installation
