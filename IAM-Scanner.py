@@ -32,29 +32,36 @@ def print_animated_message(message, delay=0.1):
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Test IAM permissions for a Google Cloud project.")
     parser.add_argument("-p", "--projectid", required=True, help="Google Cloud Project ID")
-    parser.add_argument("-k", "--keyfile", required=True, help="Path to the service account key file (JSON)")
+    parser.add_argument("-t", "--token", help="Access token")
+    parser.add_argument("-k", "--keyfile", help="Path to the service account key file (JSON)")
     return parser.parse_args()
 
 if __name__ == "__main__":
     args = parse_arguments()
 
     PROJECT_ID = args.projectid
+    ACCESS_TOKEN = args.token
     KEY_FILE_PATH = args.keyfile
 
-    if not os.path.exists(KEY_FILE_PATH):
-        sys.exit(f"Error: Key file not found at {KEY_FILE_PATH}")
+    if not ACCESS_TOKEN and not KEY_FILE_PATH:
+        sys.exit("Error: Either access token or key file must be provided.")
 
     print_banner()
     print_animated_message("Starting...", delay=0.2)
 
     print("\n" + "\n" + "=" * 80)
     print(f'Google Cloud Project ID: {PROJECT_ID}')
-    print(f'Service Account Key File: {KEY_FILE_PATH}')
+
+    if ACCESS_TOKEN:
+        print(f'Access Token: {ACCESS_TOKEN}')
+        # Create credentials using access token
+        credentials = google.oauth2.credentials.Credentials(token=ACCESS_TOKEN)
+    elif KEY_FILE_PATH:
+        print(f'Service Account Key File: {KEY_FILE_PATH}')
+        # Create credentials using service account key file
+        credentials = google.oauth2.service_account.Credentials.from_service_account_file(KEY_FILE_PATH)
+
     print("=" * 80)
-
-    # Create credentials using service account key file
-    credentials = google.oauth2.service_account.Credentials.from_service_account_file(KEY_FILE_PATH)
-
     
     # Redirect errors to a file
     error_log_path = "error_log.txt"
