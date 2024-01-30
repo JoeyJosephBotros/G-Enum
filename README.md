@@ -46,13 +46,17 @@ G-Enum is a powerful tool designed to enumerate the permissions of Google Cloud 
 ## Usage
 
 ```bash
-python g_enum.py -p <Your_Project_ID> -k <Path_to_Service_Account_Key_File.json>
+python g_enum.py -p <Your_Project_ID> -k <Path_to_Service_Account_Key_File.json> or -t <users' token>
 ```
 
 ## Example
 
 ```bash
 python g_enum.py -p my-gcp-project -k /path/to/keyfile.json
+```
+
+```bash
+python g_enum.py -p my-gcp-project -t "Token"
 ```
 
 ## Known Issues
